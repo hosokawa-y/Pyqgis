@@ -7,6 +7,9 @@ for index, layer in QgsProject.instance().mapLayers().items():
         continue
 
     file_name = layer.name()
+    code = file_name[-5:]
+    # output = "/Users/hosokawa/geotiff/" + code + ".tif"
+    output = f"/Users/hosokawa/Map data/gyouseikuiki/kanto/keiryou_test/{code}-2.tif" 
 
     parameters = {
         'INPUT': file_name,
@@ -16,7 +19,8 @@ for index, layer in QgsProject.instance().mapLayers().items():
         'HEIGHT': 0.000050,
         'EXTENT': file_name,
         'NODATA': "-9999",
-        'OUTPUT': "/Users/hosokawa/vector_to_raster/" + file_name + ".tiff"
+        'OUTPUT': output
     }
 
     result = processing.run("gdal:rasterize", parameters)
+    iface.addRasterLayer(output,"")
