@@ -10,7 +10,13 @@ pipe = QgsRasterPipe()
 pipe.set(provider.clone())
 pipe.set(renderer.clone())
 
-file_writer = QgsRasterFileWriter('/Users/hosokawa/vector_to_raster/output3.tif')
+file_name = layer.name()
+
+#opts = ["COMPRESS=DEFLATE", "PREDICTOR=2", "ZLEVEL=9"]
+opts = ["COMPRESS=JPEG", "JPEG_QUALITY=50"]
+
+file_writer = QgsRasterFileWriter(f'/Users/hosokawa/Map data/gyouseikuiki/kanto/keiryou_test/{file_name}-save6.tif')
+file_writer.setCreateOptions(opts)
 
 file_writer.writeRaster(pipe,
                         width,
