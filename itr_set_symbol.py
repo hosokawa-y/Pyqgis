@@ -17,7 +17,7 @@ for index, rlayer in QgsProject.instance().mapLayers().items():
     fnc = QgsColorRampShader()
 
     # set type of color ramp we want to use
-    fnc.setColorRampType(QgsColorRampShader.Interpolated)
+    fnc.setColorRampType(QgsColorRampShader.Exact)
 
     # define a color scheme
 
@@ -37,5 +37,7 @@ for index, rlayer in QgsProject.instance().mapLayers().items():
     rlayer.setRenderer(renderer)
 
     # set transparancy
-    rlayer.renderer().setOpacity(0.5)
+    rlayer.renderer().setOpacity(0.3)
     rlayer.triggerRepaint()
+    
+print("done")

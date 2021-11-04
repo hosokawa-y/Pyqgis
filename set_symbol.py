@@ -11,16 +11,17 @@ stats = rlayer.dataProvider().bandStatistics(1, QgsRasterBandStats.All)
 min = stats.minimumValue
 max = stats.maximumValue
 
+
 # create and empty color ramp shader
 fnc = QgsColorRampShader()
 
 # set type of color ramp we want to use
-fnc.setColorRampType(QgsColorRampShader.Interpolated)
+fnc.setColorRampType(QgsColorRampShader.Exact)
 
 # define a color scheme
 
-lst = [QgsColorRampShader.ColorRampItem(min, QColor(0,0,250)),\
-  QgsColorRampShader.ColorRampItem(max, QColor(0,0,250))]
+lst = [QgsColorRampShader.ColorRampItem(min, QColor(255,0,0)),
+QgsColorRampShader.ColorRampItem(max, QColor(255,0,0))]
 
 fnc.setColorRampItemList(lst)
 
@@ -35,5 +36,5 @@ renderer = QgsSingleBandPseudoColorRenderer(rlayer.dataProvider(), 1, shader)
 rlayer.setRenderer(renderer)
 
 # set transparancy
-rlayer.renderer().setOpacity(0.5)
-layer.triggerRepaint()
+rlayer.renderer().setOpacity(0.3)
+rlayer.triggerRepaint()
