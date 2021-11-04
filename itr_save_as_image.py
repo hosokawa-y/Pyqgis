@@ -19,10 +19,12 @@ for index, layer in QgsProject.instance().mapLayers().items():
     # compressing raster
     opts = ["COMPRESS=DEFLATE", "PREDICTOR=2", "ZLEVEL=9"]
 
-    file_writer = QgsRasterFileWriter("/Users/hosokawa/geotiff/m_geotiff/" + file_name +".tif")
+    file_writer = QgsRasterFileWriter(f'/Users/hosokawa/Map data/gyouseikuiki/kanto/output/{file_name}.tif')
     file_writer.setCreateOptions(opts)
     file_writer.writeRaster(pipe,
                             width,
                             height,
                             extent,
                             layer.crs())
+
+print("done")

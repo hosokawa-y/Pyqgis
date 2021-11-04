@@ -7,3 +7,5 @@ for file in files:
     file_name = file.replace(s, "")
     print(file_name)
     iface.addVectorLayer(file, "", 'ogr')
+
+print("done")

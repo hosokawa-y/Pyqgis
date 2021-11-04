@@ -12,10 +12,9 @@ pipe.set(renderer.clone())
 
 file_name = layer.name()
 
-#opts = ["COMPRESS=DEFLATE", "PREDICTOR=2", "ZLEVEL=9"]
-opts = ["COMPRESS=JPEG", "JPEG_QUALITY=50"]
+opts = ["COMPRESS=DEFLATE", "PREDICTOR=2", "ZLEVEL=9"]
 
-file_writer = QgsRasterFileWriter(f'/Users/hosokawa/Map data/gyouseikuiki/kanto/keiryou_test/{file_name}-save6.tif')
+file_writer = QgsRasterFileWriter(f'/Users/hosokawa/Map data/gyouseikuiki/kanto/keiryou_test/{file_name}-save12.tif')
 file_writer.setCreateOptions(opts)
 
 file_writer.writeRaster(pipe,
